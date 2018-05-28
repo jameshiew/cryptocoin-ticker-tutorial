@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "278ec89496996351ae80180f43c79b827cab8858c17549118ecaafe685bbf309"
+            "sha256": "f24fe4d2746832a912cfacbc52a368c3589622fa9c43672f12e6ef0ef4e28663"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -16,6 +16,28 @@
         ]
     },
     "default": {
+        "amqp": {
+            "hashes": [
+                "sha256:b17591ceb27192195f00c04e848dd4fcda2dc72a8eb27ea3ffa899299679c185",
+                "sha256:e28da24204bb1cdae9446a66eecbaac69659fea6a44ce58a10a7a7dae5ecd679"
+            ],
+            "version": "==2.3.0"
+        },
+        "billiard": {
+            "hashes": [
+                "sha256:1d7b22bdc47aa52841120fcd22a74ae4fc8c13e9d3935643098184f5788c3ce6",
+                "sha256:abd9ce008c9a71ccde2c816f8daa36246e92a21e6a799831b887d88277187ecd"
+            ],
+            "version": "==3.5.0.3"
+        },
+        "celery": {
+            "hashes": [
+                "sha256:6fc4678d1692af97e137b2a9f1c04efd8e7e2fb7134c5c5ad60738cdd927762f",
+                "sha256:d1f2a3359bdbdfb344edce98b8e891f5fe64f8a11c5a45538ec20ac237c971f5"
+            ],
+            "index": "pypi",
+            "version": "==4.1.1"
+        },
         "django": {
             "hashes": [
                 "sha256:26b34f4417aa38d895b6b5307177b51bc3f4d53179d8696a5c19dcb50582523c",
@@ -32,6 +54,13 @@
             "index": "pypi",
             "version": "==4.9.0"
         },
+        "kombu": {
+            "hashes": [
+                "sha256:416aa6fb7b22125a3b65322eb26f5c4479d4830b3e7bad55191ac46438ef2b2b",
+                "sha256:d601c47312833c0f6f4aaf037f293b2627398d4cf8526e6ba0360287294ee1fb"
+            ],
+            "version": "==4.2.0"
+        },
         "pytz": {
             "hashes": [
                 "sha256:65ae0c8101309c45772196b21b74c46b2e5d11b6275c45d251b150d5da334555",
@@ -45,6 +74,13 @@
                 "sha256:a22ca993cea2962dbb588f9f30d0015ac4afcc45bee27d3978c0dbe9e97c6c0f"
             ],
             "version": "==2.10.6"
+        },
+        "vine": {
+            "hashes": [
+                "sha256:52116d59bc45392af9fdd3b75ed98ae48a93e822cee21e5fda249105c59a7a72",
+                "sha256:6849544be74ec3638e84d90bc1cf2e1e9224cc10d96cd4383ec3f69e9bce077b"
+            ],
+            "version": "==1.1.4"
         }
     },
     "develop": {}
