@@ -1,0 +1,77 @@
+<html>
+<head>
+    <title>Tickers</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+        #container {
+            margin: 0 auto;
+            padding: 1em;
+            width: 300px;
+        }
+
+        .ticker {
+            width: 200px;
+            margin: 1em auto;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    {% for ticker_code in ticker_codes %}
+    <div class="ticker input-group">
+        <div class="input-group-prepend">
+            <button type="button" value="{{ ticker_code }}" class="btn btn-info" data-subscribed="false">{{ ticker_code }}</button>
+        </div>
+        <input id="{{ ticker_code }}" class="form-control" placeholder="..." type="text" readonly="readonly"/>
+    </div>
+    {% endfor %}
+</div>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+<script>
+    const sockets = {}
+    {% for ticker_code in ticker_codes %}{
+        const tc = '{{ ticker_code }}'
+        const button = $(`button[value="${tc}"`)
+        button.on('click', () => {
+            if (button.attr('data-subscribed') === 'false') {
+            button.attr('data-subscribed', 'true')
+            button.toggleClass('btn-info btn-success')
+            sockets[tc] = new WebSocket(`ws://${window.location.host}/ws/${tc.substring(0, 3)}/${tc.substring(3, 6)}`)
+            sockets[tc].onmessage = event => {
+                console.log(event)
+                const data = JSON.parse(event.data)
+                button.css({
+                    'background-color': 'green',
+                    'transition': 'background-color 0.2s linear',
+                })
+                if ('price' in data) {
+                    $(`#${tc}`).val(data['price'])
+                }
+                setTimeout(() => {
+                    button.css({
+                    'background-color': '',
+                    'transition': '',
+                })
+            }, 200)
+            }
+        } else {
+            button.attr('data-subscribed', 'false')
+            button.toggleClass('btn-success btn-info')
+            if (sockets[tc]) {
+                sockets[tc].close()
+            }
+        }
+    })
+    }{% endfor %}
+</script>
+</body>
+</html>
