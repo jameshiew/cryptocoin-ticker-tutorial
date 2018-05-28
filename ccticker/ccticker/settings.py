@@ -133,3 +133,8 @@ CACHES = {
 
 CELERY_BROKER_URL = 'redis://localhost:6379/1'
 CELERY_RESULT_BACKEND = 'redis://localhost:6379/1'
+
+# django-celery-beat
+INSTALLED_APPS += [
+    'django_celery_beat'
+]

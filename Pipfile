@@ -9,6 +9,7 @@ django-redis = "*"
 celery = "*"
 cryptocompy = "*"
 requests = "*"
+django-celery-beat = "*"
 
 [dev-packages]
 
