@@ -10,6 +10,7 @@ celery = "*"
 cryptocompy = "*"
 requests = "*"
 django-celery-beat = "*"
+channels = "*"
 
 [dev-packages]
 

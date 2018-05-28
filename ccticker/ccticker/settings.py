@@ -138,3 +138,9 @@ CELERY_RESULT_BACKEND = 'redis://localhost:6379/1'
 INSTALLED_APPS += [
     'django_celery_beat'
 ]
+
+# channels
+INSTALLED_APPS += [
+    'channels',
+]
+ASGI_APPLICATION = "ccticker.routing.application"
