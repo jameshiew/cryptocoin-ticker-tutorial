@@ -4,7 +4,7 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-django = ">=2.0.8"
+django = ">=2.0.10,<2.1"
 django-redis = "*"
 celery = "*"
 cryptocompy = "*"
