@@ -7,6 +7,4 @@ test migrations:
   script:
     - pip install pipenv==2018.11.26
     - pipenv install --skip-lock
-    - pipenv shell
-    - cd ccticker/
-    - ./manage.py migrate
+    - pipenv run ccticker/manage.py migrate
