@@ -1,4 +1,4 @@
-# cryptocoin-ticker-tutorial ![pipeline status](https://gitlab.com/jameshiew/cryptocoin-ticker-tutorial/badges/master/pipeline.svg)
+# cryptocoin-ticker-tutorial [![pipeline status](https://gitlab.com/jameshiew/cryptocoin-ticker-tutorial/badges/master/pipeline.svg)](https://gitlab.com/jameshiew/cryptocoin-ticker-tutorial/commits/master)
 
 This is the codebase to accompany the cryptocoin ticker tutorial on Medium.com.
 
