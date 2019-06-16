@@ -5,7 +5,7 @@ test migrations:
   image: python:3.6
   stage: test
   script:
-    - pip install pipenv=2018.11.26
+    - pip install pipenv==2018.11.26
     - pipenv install --skip-lock
     - pipenv shell
     - cd ccticker/
